@@ -23,6 +23,7 @@ h3{
 
 ol{
     color:aquamarine;
+    width:fit-content;
 }
 
 .list{
@@ -31,3 +32,4 @@ ol{
     margin:20px;
     border: 1px solid yellow;
 }
+
