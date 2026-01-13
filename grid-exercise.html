@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #grid-example-one div{
+            padding: 20px;
+            background-color: gray;
+        }
+        #grid-example-one{
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            gap:2px;
+        }
+
+        #grid-example-two > div{
+            /* A > B  targets to all B's in class-A
+            in this case all the divs in id"grid-example-two */
+            background-color: lightblue;
+            padding: 20px;
+        }
+        #grid-example-two{
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows:repeat(6,1fr);
+            gap:2px;
+        }
+
+        #header{
+            grid-row-start: 1;
+            grid-column-start: 1;
+            grid-row-end: 1;
+            grid-column-end: 6;
+        }
+        #sidebar{
+            grid-row-start: 2;
+            grid-column-start: 1;
+            grid-row-end: 6;
+            grid-column-end: 2;
+        }
+        #content1{
+            grid-row: 2/4;
+            grid-column: 2/6;
+        }
+        #content2{grid-area: 4/2/6/4;}
+        #content3{grid-row:span 2; grid-column: span 2;}
+        #content4{grid-area: 5/2/6/6;}
+        #footer{grid-column: span 6;}
+
+    </style>
+</head>
+<body>
+    <div id="grid-example-one">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div id="grid-example-two">
+        <div id="header">header</div>
+        <div id="sidebar">sidebar</div>
+        <div id="content1">content1</div>
+        <div id="content2">content2</div>
+        <div id="content3">content3</div>
+        <div id="footer">footer</div>
+    </div>
+</body>
+</html>
