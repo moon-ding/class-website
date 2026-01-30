@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+
+        .stack{
+            width: 100%;
+        }
+        body img{
+            width: 100%;
+            position:absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .top-img{filter: blur(10px);}
+        .top-img:hover{
+            transition: all 0.3s ease;
+            filter: blur(0px);}
+
+        .bottom{
+            opacity: 0;
+            pointer-events: none;}
+
+        .stack.hide-top .top{
+            opacity: 0;
+            pointer-events: none;}
+        .stack.hide-top .bottom{
+            pointer-events: auto;
+            opacity: 1;}
+
+        .hint{
+            position: absolute;
+            top: 1%;
+            left: 3%;
+            color: white;
+            animation: hint-disappear 7s;}
+        @keyframes hint-disappear{
+            0%{opacity: 1;}
+            100%{opacity: 0;}
+        }
+
+        #top-text{
+            position: absolute;
+            color: white;
+            right:20%;
+            top: 20%;
+            z-index:3;
+            font-size: xx-large;
+        }
+        #top-text:hover{scale: 1.1;transition: all 0.2s;}
+
+        #bot-text{
+            position: absolute;
+            color: white;
+            left:45%;
+            top: 15%;
+            z-index:3;
+            font-size: xx-large;
+        }
+        #bot-text:hover{color: blue;transition: all 0.2s;}
+
+
+    </style>
+</head>
+<body>
+    <div class="stack" id="stack">
+        <img class="top-img" src="images/frieren and himmel.png">
+        <img class="bottom" src="images/frieren only.png">
+        <p class="top" id="top-text">Frieren.</p>
+        <p class="bottom" id="bot-text">...Thank you.</p>
+    </div>
+
+    <p class="hint">*Hover and click around*</p>
+    
+    <audio id="bg-music" autoplay loop>
+        <source src="images/SpotiDownloader.com - Mirrored Lotus - Evan Call.mp3">
+    </audio>
+
+    <script>
+        const stack = document.getElementById("stack");
+        stack.addEventListener("click",function(){
+            stack.classList.toggle("hide-top");
+        });
+    </script>
+</body>
+</html>
