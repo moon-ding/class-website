@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        img{
+            position: absolute;
+            top:15%;
+            transform: scale(2);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p>Tell me something you believe in:</p>
+    <input type="text" id="statement" name="statement">
+    <button onclick="objection()">Submit</button>
+    <img src="images/objection.webp" id="objection-img">
+    <audio id="objection-audio">
+        <source src="images/objection.mp3" type="audio/mpeg">
+    </audio>
+    <!--asked chatGPT on how to use audio-->
+
+    <script>
+
+        function objection(){
+            const objectionImg = document.getElementById("objection-img");
+            const objectionAudio = document.getElementById("objection-audio");
+            objectionImg.style.display = 'block';
+            objectionAudio.currentTime = 0;
+            objectionAudio.play();
+        }
+    </script>
+</body>
+</html>
