@@ -1,0 +1,81 @@
+<!--
+css stuff:
+z index: layers, to solve overlapping issues
+xxx !important: to enforce this rule, should avoid
+
+html event handlers:
+onclick
+onmouseenter
+onmouseleave
+ondrag
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .spring{
+            color:green;
+            background-color: yellowgreen;
+            border: 1px solid green;
+        }
+        .valentines{
+            color:red;
+            background-color: pink;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="demo">
+        There is no snow.
+    </div>
+    <button onclick='document.getElementById("demo")'.
+    innerHTML = "There is so much snow">Make it snow.</button>
+
+    <img id="demo2" src="images/cat.jpg" style="width: 400px;"> -->
+
+    <p>1p</p>
+    <p class="color">2p</p>
+    <p class="color">3p</p>
+    <button id="spring-button">Spring</button>
+    <button id="valentines-button">Valentines</button>
+
+
+    <script> //javascript stuff here
+    // const demoButton = document.getElementById("demo-button");
+    // demoButton.addEventListener("click",
+    // function(){
+    //     document.getElementById("demo2").src="images/cat.jpg";})
+
+    //document.querySelector("p").style.color = "red";
+
+    const pList = document.querySelectorAll("p")
+    //getting all p's and put into pList
+    // for (let i=0;i<pList.length;i++){
+    //     pList[i].style.backgroundColor="blue";
+    //     pList[i].style.color="white";
+    //     //pList[i].classList.add("spring");    
+    // }
+
+    const springButton = document.getElementById("spring-button");
+    const valentinesButton = document.getElementById("valentines-button");
+
+    springButton.addEventListener("click",function(){
+        for (let i=0; i< pList.length;i++){
+            pList[i].classList.value=''; //reset to default value
+            pList[i].classList.add("spring");
+        }
+    })
+    valentinesButton.addEventListener("click",function(){
+        for (let i=0; i< pList.length;i++){
+            pList[i].classList.value=''; //reset to default value
+            pList[i].classList.add("valentines");
+        }
+    })
+    </script>
+</body>
+</html>

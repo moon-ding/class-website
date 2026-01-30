@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: white;
+            color: orangered;
+        }
+
+        body.dark-mode{
+            background-color: black;
+            color: white;
+        }
+
+        .red{
+            color:red;
+            padding: 10px;
+            background-color: pink;
+            border: 2px solid red;
+        }
+
+        .green{
+            color:green;
+            padding: 10px;
+            background-color: yellowgreen;
+            border: 2px solid green;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- <div id="container"></div>
+
+    //submit name
+    <label>First Name</label>
+    <input type="text" id="fname" name="fname"> textbox eg. for login -->
+    <!-- <button onclick="firstName()">Submit</button> -->
+
+    <!--true false-->
+    <!-- <p>Did it Snow?</p>
+    <button onclick="didItSnow(true)">Yes</button>
+    <button onclick="didItSnow(false)">No</button> -->
+
+    <!--toggle switch, light/dark mode-->
+    <!-- <h1>Hello world!</h1>
+    <button onclick="toggleSwitch()" id="light-switch">Light Switch</button> -->
+
+    <!-- random selector
+    <p id="fruit-container"></p>
+    <button onclick="random()">Randomize</button> -->
+
+    <!-- random colors
+    <div onclick="pickColor()" id="demo">Randomize the color of this div!</div> -->
+
+    <!--arraylist
+    <div id="basket"></div>
+    <div> xxx(this is what the .innerHTML will directly change)   </div>
+     <button onclick="eatGreenFruit()">eat green fruit</button> -->
+
+    <!-- random switch with in order + time interval
+    <div id="basket"></div> -->
+
+ 
+
+    <script>
+        // function helloWorld(){
+        //     return "Hello World";
+        // }
+        // let message = helloWorld();
+        // //let xx = box that will return sth inside
+        // document.getElementById("container").innerHTML = message;
+
+        // function firstName(){
+        //     let name = document.getElementById("fname").value; //grab the id(fname) for the input box
+        //     console.log(name); //documenting + test input
+        //     let reply = document.createElement("div");
+        //     reply.innerHTML = `Hello ${name}`; //$ to insert text into string
+        //     document.body.appendChild(reply);
+        //     //meaning: I am adding a child to a parent (here it's body)
+        //  } 
+
+        // function didItSnow(answer){
+        //     if (answer){
+        //         document.body.style.color = "";
+        //         document.body.style.backgroundColor = "lightblue";
+        //     }
+        //     else{
+        //         document.body.style.backgroundColor = "blue";
+        //         document.body.style.color = "white";
+        //     }
+        // }
+
+        // function toggleSwitch(){
+        //     var world = document.body;
+        //     world.classList.toggle("dark-mode");
+        //     //toggle switches btw hide/show method
+        // }
+
+        // let fruits = ["apples","oranges","bananas","peaches","pears"];
+        // let fruitContainer = document.getElementById("fruit-container");
+        // function random(){
+        //     let randomFruit = fruits[Math.floor(Math.random()*fruits.length)]
+        //     //math.floor rounds real number down to greatest int
+        //     fruitContainer.innerHTML = randomFruit;
+        // }
+
+        // let colors = ["red",'blue','yellow'];
+        // function pickColor(){
+        //     let randomColor = colors[Math.floor(Math.random()*colors.length)];
+        //     console.log(randomColor);
+        //     document.getElementById("demo").style.backgroundColor = randomColor;
+        // }
+
+        // //fruit switch
+        // let redfruits = ["red apples","strawberries","cherries"];
+        // let greenfruits = ["green apples","lime","melon"];
+
+        // let basket = document.getElementById("basket");
+        // function fillBasket(){
+        //     for (i=0;i<redfruits.length;i++){
+        //         let fruit = document.createElement("div");
+        //         fruit.classList.add("red"); //adds red class to the div fruit
+        //         fruit.innerHTML = redfruits[i]; //x.innerHTML REPLACES html content
+        //         basket.appendChild(fruit);
+        //     }
+
+        //     for (i=0;i<greenfruits.length;i++){
+        //         let fruit = document.createElement("div");
+        //         fruit.classList.add("green"); //adds red class to the div fruit
+        //         fruit.innerHTML = greenfruits[i]; //x.innerHTML REPLACES html content
+        //         basket.appendChild(fruit);
+        //     }
+        // }
+        // fillBasket();
+
+        // let allFruits = document.querySelectorAll("div");
+        // function eatGreenFruit(){
+        //     //for each executes function onceper element
+        //     allFruits.forEach(function(fruit){
+        //         if (fruit.classList.contains("green")){
+        //             fruit.style.display = "none";
+        //         }
+        //         else{
+        //             fruit.style.display = "block";
+        //         }
+        //     });
+        // }
+
+        let foodList = ["pho","coffee","pasta","chocolate","rice"];
+        function randomizeFood(){
+            let selectedFood = foodList[Math.floor(Math.random()*foodList.length)];
+            document.getElementById("basket").innerHTML = selectedFood;
+        }
+        setInterval(randomizeFood, 500);
+
+    </script>
+</body>
+</html>

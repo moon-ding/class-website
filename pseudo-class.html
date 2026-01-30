@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo class+animation+responsive</title>
+    <style>
+        p{
+            color: green;
+            cursor:pointer;
+            transform-origin: 50% 50%;
+            /*sets origin for rotation to default*/
+            width:fit-content;
+            background-color: gray;
+        }
+        p:hover{
+            color: red;
+            transform: rotate(10deg);
+        }
+        div{
+            background-color: aqua;
+            width: 200px;
+            height: 200px;
+            margin: 100px;
+            transform: rotate(5deg);
+            transition: all 0.5s ease-in-out;
+            position:relative;
+            left:20px;
+        }
+        div:hover{
+            transform: rotate(10deg);
+        }
+
+        #question p{
+            display: none;
+        }
+        #question:hover p{
+            display: block;
+        }
+
+        ul{
+            font-size: 30px;
+        }
+        li:first-child{
+            background-color: yellow;
+        }
+        li:nth-child(even){
+            background-color: green;
+        }
+        li:nth-child(3n){
+            background-color: blue;
+        }
+
+        img{
+            width: 200px;
+            position: fixed;
+            right:20px;
+            top:20px;
+            animation: spinning 30s infinite linear;
+            /*you have to have your animation*/
+        }
+        @keyframes spinning{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <p>Red</p>
+    <div></div>
+    <img src="images/cat.jpg">
+    <div id="question">
+        ghost?
+        <p>here!</p>
+    </div>
+
+    <ul>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+    </ul>
+</body>
+</html>
