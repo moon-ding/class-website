@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Light System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            color: white;
+            transition: background-color 0.5s;
+            font-size: 2rem;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        button:hover{
+            background-color: gray;
+            color: white;
+        }
+        #timer {
+            font-size: 4rem;
+            margin: 20px 0;
+        }
+        #message {
+            font-size: 3rem;
+            margin-top: 20px;
+            display: none;
+        }
+        p{
+            font-size: medium;
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Red Light Countdown</h1>
+    <div id="timer">30.0</div>
+    <button id="letMeGo">Let Me Go</button>
+    <button id="restart">Restart Red Light</button>
+    <div id="message">Time to Go!</div>
+    <p>
+        I asked ChatGPT to provide the code with the initial prompt:
+        "Make a redlight system that incorporates randomness. 
+        automatically make the background red. 
+        display a countdown of 30seconds. 
+        after 20 seconds it automatically turns yellow, and at the end of the countdown turns green. 
+        each time pressing button "let me go" has a equal change of adding 
+        0.1s/1s/5s/10s/15s/20s/30s, and decreasing 0.1s/1s/5s/10s/15s/20s/30s."
+    </p>
+    <p>
+        ChatGPT returned the entire code. I tested and it is fully workable.
+        Then I wrote in prompt:"once the screen turns red/countdown == 0, display words: time to go!"
+    </p>
+    <p>
+        ChatGPT made it work by linking the timeLeft to message display.
+        I then requested to "add a restart redlight button and update its functions".
+    </p>
+    <p>
+        This time ChatGPT returned a bugged code where countdown is declared twice in both
+        the storage variable setup "let xx" and the function countdown(). I identified the bug
+        and asked ChatGPT to fix it. Its solution was to make it a single identifier
+        and update the function with this variable.
+    </p>
+    <p>At last I edited custom messsages, added more numbers to increase randomness,
+        added button:hover effects, and formatted paragraph text.
+        I noticed that ChatGPT tend to use '' instead of "", and (){} instead of function(){} even though they point to the same output.
+        Without formatting commands it will not use layout structures and everything's centered.
+    </p>
+
+    <script>
+        let timeLeft = 30.0; // Countdown in seconds
+        let countdown;
+
+        const timerDisplay = document.getElementById('timer');
+        const letMeGoBtn = document.getElementById('letMeGo');
+        const restartBtn = document.getElementById('restart');
+        const message = document.getElementById('message');
+
+        const changes = [0.1, 0.5, 1, 5, 10, 15, 20, 25, 30,40,50];
+
+        function randomTimeChange() {
+            const change = changes[Math.floor(Math.random() * changes.length)];
+            return Math.random() < 0.5 ? -change : change;
+        }
+
+        function updateColor() {
+            if (timeLeft > 20) {
+                document.body.style.backgroundColor = 'red';
+                message.style.display = 'none';
+            } else if (timeLeft > 0) {
+                document.body.style.backgroundColor = 'yellow';
+                document.body.style.color = 'black';
+                message.style.display = 'none';
+            } else {
+                document.body.style.backgroundColor = 'green';
+                message.style.display = 'block'; // Show message when green
+            }
+        }
+
+        function updateDisplay() {
+            timerDisplay.textContent = timeLeft.toFixed(1);
+        }
+
+        letMeGoBtn.addEventListener('click', function() {
+            const change = randomTimeChange();
+            timeLeft += change;
+            if (timeLeft < 0) timeLeft = 0;
+            updateDisplay();
+            updateColor();
+        });
+
+        restartBtn.addEventListener("click",function(){
+            timeLeft = 30.0;
+            updateColor();
+            updateDisplay();
+            startCountdown();
+        })
+
+        function startCountdown() {
+            clearInterval(countdown); // Stop any existing interval
+            countdown = setInterval(() => {
+                if (timeLeft > 0) {
+                    timeLeft -= 0.1;
+                    if (timeLeft < 0) timeLeft = 0;
+                    updateDisplay();
+                    updateColor();
+                } else {
+                    clearInterval(countdown);
+                    updateDisplay();
+                    updateColor();
+                }
+            }, 100);
+        }
+
+        // Initialize
+        updateDisplay();
+        updateColor();
+        startCountdown();
+    </script>
+</body>
+</html>
