@@ -1,6 +1,7 @@
 <!-- save file as .html, (mac) shift+1 to generate minimal code -->
 <!DOCTYPE html>
 <html lang="en"> <!-- set system language -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,53 +9,72 @@
     <link rel="icon" type="image/x-icon" href="images/moon meme.jpeg">
     <link rel="stylesheet" href="style.css">
     <style>
-        *{
+        * {
             box-sizing: border-box;
         }
+        body{
+            text-align: center;
+        }
+        img:hover{
+            transform: scale(1.7);
+            transition: all 0.1s ease-in;
+        }
+        
     </style>
 </head>
+
 <body>
     <div class="title">
-        <h1>
-        <center><i>MOON</i>'s CLASS WEBSITE</center>
-        </h1>
+        <h1><i>MOON</i>'s CLASS WEBSITE</h1>
     </div>
     <div class="title">
-        <center><h2>
-        web-design-winter-spring-2026
-        </h2></center>
+            <h2><i>web-design-winter-spring-2026</i></h2>
     </div>
-    <div class="homepage-meme">
-        <center><img src="images/moon meme.jpeg" width="30%" height="auto"></center>
+    <div id="homepage-meme">
+        <img src="images/rotating-moon.gif" width="30%" height="auto">
     </div>
-    <div class="about"><center><p>
-        The first website for this class :)
-        <p>There's not much special about me or this place, but feel free to roam around.</p>
-    </p></center></div>
+    <div id="about">
+            <p>
+                The first website for this class :)
+            <p>There's not much special about me or this place, but feel free to roam around.</p>
+            </p>
+    </div>
     <br>
-    <div class="list" id="winter-plan">
-        <center><h3>Plans for Winter</H3></center>
-        <center><ol>
-            <li><a href="images/sleep meme.jpeg" target="_blank" style="color:aqua">Sleep before 1AM (at least...try?)</a></li>
-            <li>Cook all my meals</li>
-            <li>Workout!</li>
-        </ol></center>
+    <div class="list" id="winter-plan" style="justify-items: center;">
+            <h3>Plans for Winter</H3>
+
+            <ol>
+                <li><a href="images/sleep meme.jpeg" target="_blank" style="color:aqua">Sleep before 1AM (at
+                        least...try?)</a></li>
+                <li>Cook all my meals</li>
+                <li>Workout!</li>
+            </ol>
     </div>
-    <div class="list" id="classwork">
-        <center><h3>Classwork</H3></center>
-        <center><ol>
-            <li>Exercise 1</li>
-            <li>Exercise 2+3</li>
-            <li>Project 1:
-                <a href="https://moon-ding.github.io/circus-hall-of-fame/" target="_blank" style="color:aqua">
-                    Circus Hall of Fame
-                </a>
-        </li>
-        <li><a href=flex.html style="color:aqua">Flexbox exercise</a></li>
-        <li><a href=grid-exercise.html style="color:aqua">Grid exercise</a></li>
-        <li><a href=holy-grail.html style="color:aqua">Holy Grail</a></li>
-        <li><a href=screensave.html style="color:aqua">ScreenSaver</a></li>
+    <div class="list" id="classwork" style="justify-items: center;">
+            <h3>Classwork</H3>
+            <ol>
+                <li><a href="https://www.figma.com/design/rcG5LoXCXbz8XJyBJO3DT8/recreate-webpage?node-id=0-1&t=bAYkewpjZWCyAIbp-1"
+                        target="_blank" style="color:aqua">
+                        Exercise 1: Figma</a></li>
+                <li style="color:aqua">Exercise 2: Class site (this site)</li>
+                <li>Project 1:
+                    <a href="https://moon-ding.github.io/circus-hall-of-fame/" target="_blank" style="color:aqua">
+                        Circus Hall of Fame
+                    </a>
+                </li>
+                <li><a href=flex.html target="_blank" style="color:aqua">Flexbox exercise</a></li>
+                <li><a href=grid-exercise.html target="_blank" style="color:aqua">Exercise 3: Grid exercise</a></li>
+                <li><a href=holy-grail.html target="_blank" style="color:aqua">Exercise 4: Holy Grail</a></li>
+                <li><a href=screensave.html target="_blank" style="color:aqua">Exercise 5: ScreenSaver</a></li>
+                <li><a href=exercise-6.html target="_blank" style="color:aqua">Exercise 6: Function</a></li>
+                <li><a href=exercise-78.html target="_blank" style="color:aqua">Exercise 7+8: Randomness/The Future of Coding</a></li>
+                <li>Project 2:
+                    <a href="https://moon-ding.github.io/Spores/" target="_blank" style="color:aqua">
+                        Spores
+                    </a>
+                </li>
 
     </div>
 </body>
+
 </html>

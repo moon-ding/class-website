@@ -1,5 +1,5 @@
 body{
-    background-color: black;
+    background-color: #19191c;
 }
 h1{
     color:white;
@@ -17,8 +17,9 @@ h3{
     font-size:150%;
 }
 
-.about{
+#about{
     color:white;
+    justify-items: center;
 }
 
 ol{
@@ -30,6 +31,7 @@ ol{
     border: 20px;
     padding:10px;
     margin:20px;
-    border: 1px solid yellow;
+    border: 2px dotted yellow;
+    text-align: left;
 }
 

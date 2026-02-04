@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
             transition: background-color 0.5s;
             font-size: 2rem;
         }
+
         button {
             padding: 15px 30px;
             font-size: 18px;
@@ -21,26 +23,30 @@
             border-radius: 8px;
             margin-top: 20px;
         }
-        button:hover{
+
+        button:hover {
             background-color: gray;
             color: white;
         }
+
         #timer {
             font-size: 4rem;
             margin: 20px 0;
         }
+
         #message {
             font-size: 3rem;
             margin-top: 20px;
             display: none;
         }
-        p{
+
+        p {
             font-size: medium;
             text-align: left;
         }
-
     </style>
 </head>
+
 <body>
     <h1>Red Light Countdown</h1>
     <div id="timer">30.0</div>
@@ -49,11 +55,11 @@
     <div id="message">Time to Go!</div>
     <p>
         I asked ChatGPT to provide the code with the initial prompt:
-        "Make a redlight system that incorporates randomness. 
-        automatically make the background red. 
-        display a countdown of 30seconds. 
-        after 20 seconds it automatically turns yellow, and at the end of the countdown turns green. 
-        each time pressing button "let me go" has a equal change of adding 
+        "Make a redlight system that incorporates randomness.
+        automatically make the background red.
+        display a countdown of 30seconds.
+        after 20 seconds it automatically turns yellow, and at the end of the countdown turns green.
+        each time pressing button "let me go" has a equal change of adding
         0.1s/1s/5s/10s/15s/20s/30s, and decreasing 0.1s/1s/5s/10s/15s/20s/30s."
     </p>
     <p>
@@ -72,7 +78,8 @@
     </p>
     <p>At last I edited custom messsages, added more numbers to increase randomness,
         added button:hover effects, and formatted paragraph text.
-        I noticed that ChatGPT tend to use '' instead of "", and (){} instead of function(){} even though they point to the same output.
+        I noticed that ChatGPT tend to use '' instead of "", and (){} instead of function(){} even though they point to
+        the same output.
         Without formatting commands it will not use layout structures and everything's centered.
     </p>
 
@@ -85,7 +92,7 @@
         const restartBtn = document.getElementById('restart');
         const message = document.getElementById('message');
 
-        const changes = [0.1, 0.5, 1, 5, 10, 15, 20, 25, 30,40,50];
+        const changes = [0.1, 0.5, 1, 5, 10, 15, 20, 25, 30, 40, 50];
 
         function randomTimeChange() {
             const change = changes[Math.floor(Math.random() * changes.length)];
@@ -110,7 +117,7 @@
             timerDisplay.textContent = timeLeft.toFixed(1);
         }
 
-        letMeGoBtn.addEventListener('click', function() {
+        letMeGoBtn.addEventListener('click', function () {
             const change = randomTimeChange();
             timeLeft += change;
             if (timeLeft < 0) timeLeft = 0;
@@ -118,7 +125,7 @@
             updateColor();
         });
 
-        restartBtn.addEventListener("click",function(){
+        restartBtn.addEventListener("click", function () {
             timeLeft = 30.0;
             updateColor();
             updateDisplay();
@@ -147,4 +154,5 @@
         startCountdown();
     </script>
 </body>
+
 </html>
